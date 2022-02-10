@@ -25,28 +25,6 @@ admin.site.index_title = "Welcome to TO_DO app"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  include('to_do.urls')),
+    # path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('api.urls')),
 ]
-
-# from django.contrib import admin
-# from django.urls import include, path
-# from django.contrib.auth import views as auth_views #import this
-#
-# admin.site.site_header = "Day Plan"
-# admin.site.site_title = "Day Plan Admin Portal"
-# admin.site.index_title = "Welcome to Day Plan"
-#
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('',  include('plan.urls')),
-#     # path('password_reset/', auth_views.password_reset, name='password_reset'),
-#     path('password_reset/done/',
-#          auth_views.PasswordResetDoneView.as_view(),
-#          name='password_reset_done'),
-#     path('reset/<uidb64>/<token>/',
-#          auth_views.PasswordResetConfirmView.as_view(template_name="main/password/password_reset_confirm.html"),
-#          name='password_reset_confirm'),
-#     path('reset/done/',
-#          auth_views.PasswordResetCompleteView.as_view(template_name='main/password/password_reset_complete.html'),
-#          name='password_reset_complete'),
-#
-# ]
