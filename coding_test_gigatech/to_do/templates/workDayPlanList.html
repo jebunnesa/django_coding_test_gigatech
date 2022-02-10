@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container mt-3">
+
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+      <p class="text-secondary"> {% now "D, jS b, Y" %}</p>
+      <div>
+       <a href ="{% url 'index' %}"  class="btn btn-success" style="float: right;"><i class="fa fa-plus"></i></a>
+      <h1 class="display-5 text-center" style="margin:8%;">Work Day Plans</h1>
+          </div>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+      <table class="table table-bordered table-hover mb-3" style="text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col" >#</th>
+      <th scope="col" >Time</th>
+      <th scope="col" >To do </th>
+      <th scope="col" >Purpose </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for plan in work_day_plans %}
+    <tr>
+        <td>
+            <a type="button" class="btn btn-sm opacity-25 " href="/work_plan/update/{{plan.pk}}"><i class="fa fa-edit"></i></a>
+        </td>
+      <td>
+
+          {{plan.start_time|time:"g:i"}} - {{plan.end_time|time:"g:iA"}}
+      </td>
+
+      <td class="bg-primary bg-gradient text-white">
+                <div  >
+                    <div> {{plan.to_do}}</div>
+                </div>
+
+      </td>
+      <td class="text-white bg-info bg-gradient">
+             <div  >
+                    <div> {{plan.work}}</div>
+             </div>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+      </div>
+  </div>
+    {% endblock %}
