@@ -7,6 +7,12 @@
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
       <p class="text-secondary"> {% now "D, jS b, Y" %}</p>
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+              <p> {{weather_data.status}}</p>
+              <p> Temp: {{weather_data.temp}}<span>&#176;</span>C || Humidity: {{weather_data.humidity}}</p>
+          </div>
+      </div>
       <div>
        <a href ="{% url 'index' %}"  class="btn btn-success" style="float: right;"><i class="fa fa-plus"></i></a>
       <h1 class="display-5 text-center" style="margin:8%;">Work Day Plans</h1>

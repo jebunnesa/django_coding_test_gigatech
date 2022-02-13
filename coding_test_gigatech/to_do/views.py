@@ -16,6 +16,22 @@ from django.urls import reverse_lazy
 from datetime import date
 # Create your views here.
 
+import json
+import urllib.request
+
+
+def get_weather_data():
+    source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=Dhaka&appid=48c5c197cdf693845ce51ff8794494a1').read()
+    # converting JSON data to a dictionary
+    list_of_data = json.loads(source)
+    temp = round(list_of_data['main']['temp'] - 273.15, 2)
+    #data for variable list_of_data
+    data = {
+        "temp": str(temp),
+        "status": list_of_data['weather'][0]['main'],
+        "humidity": str(list_of_data['main']['humidity']),
+    }
+    return data
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class WorkPlanDeleteView(DeleteView):
@@ -75,8 +91,9 @@ class WorkPlanUpdateView(UpdateView):
 
 @login_required(login_url='login')
 def work_day_plan_List(request):
+    weather_data = get_weather_data()
     plan_list = WorkDayPlan.objects.all().filter(created_by=request.user).order_by('start_time')
-    return render(request, 'workDayPlanList.html', {'work_day_plans': plan_list, })
+    return render(request, 'workDayPlanList.html', {'work_day_plans': plan_list, 'weather_data': weather_data})
 
 
 # @method_decorator(login_required(login_url='login'), name='dispatch')
