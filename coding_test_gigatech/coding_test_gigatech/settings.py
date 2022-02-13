@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gigatech_coding_test',
         'USER': 'postgres',
-        'PASSWORD': 'jemi3485',
+        'PASSWORD': '12345678',
         'HOST': 'localhost',
         'PORT': '',
     }
