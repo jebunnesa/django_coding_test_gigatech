@@ -9,7 +9,7 @@ $ git clone https://github.com/jebunnesa/django_coding_test_gigatech.git
 # Create a virtual environment to install dependencies in and activate it:
 
 $ python3 -m venv venv
-$ source venv/bin/activate
+<br/> $ source venv/bin/activate
 
 # Then install the dependencies:
 
@@ -18,8 +18,8 @@ $ source venv/bin/activate
 # Database
 
 update your database credentials to seetings.py  (postgresql Database is used)
-and do migrate,
-(venv)$ python3 manage.py migrate
+<br/> and do migrate,
+<br/>(venv)$ python3 manage.py migrate
 
 # Run Project:
 (venv)$ python3 manage.py runserver
