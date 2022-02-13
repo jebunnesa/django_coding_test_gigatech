@@ -18,6 +18,7 @@ $ source venv/bin/activate
 # Database
 
 update your database credentials to seetings.py  (postgresql Database is used)
+and do migrate,
 (venv)$ python3 manage.py migrate
 
 # Run Project:
